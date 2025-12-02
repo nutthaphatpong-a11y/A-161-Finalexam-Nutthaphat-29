@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,7 +8,6 @@ public abstract class PowerUpbase : MonoBehaviour
     public Player player;
 
     public abstract void ApplyEffect(Player player);
-    {
-        OnTriggerEnter2D
-    }
+
+
 }

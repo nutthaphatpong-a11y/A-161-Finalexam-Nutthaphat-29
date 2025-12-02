@@ -33,9 +33,11 @@ public class Player : MonoBehaviour
         Debug.Log("You get Shild");
     }
 
-    private void OnTriggerEnter2D(Collider2D Collider2D)
+    public void OnTriggerEnter2D(Collider2D Collider2D)
     {
-        GetComponent<PowerUpbase>().ApplyEffect(player);
+        //GetComponent<PowerUpbase>().ApplyEffect(this);
+        object other;
+        PowerUpbase power = other.GetComponent
     }
 
     public void Move()
