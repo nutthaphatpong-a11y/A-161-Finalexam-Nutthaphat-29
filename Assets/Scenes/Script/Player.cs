@@ -1,21 +1,57 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float movespeed = 5f;
+    public float movespeed = 5f;
+    private float JumpForce = 10f;
 
-    private bool isInvulnerability = false;
+    public bool isInvulnerability = false;
 
     public Rigidbody2D rb;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        float moveInput = Input.GetAxisRaw("Horizontal");
+        rb.linearVelocity = new Vector2(moveInput * movespeed, rb.linearVelocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce); 
+
+        } 
+
+        //float JumpInput = Input.GetAxisRaw("Jump");
+        //rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce);
+    }
+
+    public void SetMoveSpeed(float amout)
+    {
+        
+    }
+    public void SetisInvulnerability(bool a)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D Collider2D)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Move()
     {
         
     }
+
+    public void Jump()
+    {
+        
+    }
+        
 }
