@@ -1,16 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PowerUpbase : MonoBehaviour
+public abstract class PowerUpbase : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    bool IsEffectActive = false;
+    public Player player;
 
-    // Update is called once per frame
-    void Update()
+    public abstract void ApplyEffect(Player player);
     {
-        
+        OnTriggerEnter2D
     }
 }

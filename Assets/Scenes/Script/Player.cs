@@ -13,45 +13,44 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     private void Update()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * movespeed, rb.linearVelocity.y);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce); 
-
-        } 
-
-        //float JumpInput = Input.GetAxisRaw("Jump");
-        //rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce);
+        Move();
+        Jump();
     }
 
     public void SetMoveSpeed(float amout)
     {
-        
+        movespeed *= amout;
+        Debug.Log("You get SpeedUP SpeedPlayer" + movespeed);
     }
-    public void SetisInvulnerability(bool a)
+    public void SetisInvulnerability(bool real)
     {
-        
+        isInvulnerability = real;
+        Debug.Log("You get Shild");
     }
 
     private void OnTriggerEnter2D(Collider2D Collider2D)
     {
-        throw new NotImplementedException();
+        GetComponent<PowerUpbase>().ApplyEffect(player);
     }
 
     public void Move()
     {
-        
+        float moveInput = Input.GetAxisRaw("Horizontal");
+        rb.linearVelocity = new Vector2(moveInput * movespeed, rb.linearVelocity.y);
     }
 
     public void Jump()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce);
+
+        }
     }
         
 }
