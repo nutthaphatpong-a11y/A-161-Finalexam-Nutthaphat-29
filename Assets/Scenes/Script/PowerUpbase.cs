@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class PowerUpbase : MonoBehaviour
 {
-    bool IsEffectActive = false;
-    public Player player;
+    public bool IsEffectActive = false;
+    
 
     public abstract void ApplyEffect(Player player);
 

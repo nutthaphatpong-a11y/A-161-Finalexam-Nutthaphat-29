@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     public float movespeed = 5f;
     private float JumpForce = 10f;
+    public float Health = 10;
 
     public bool isInvulnerability = false;
 
@@ -31,13 +32,17 @@ public class Player : MonoBehaviour
     {
         isInvulnerability = real;
         Debug.Log("You get Shild");
+    }    
+    public void TakeDamage(int amout)
+    {
+        Health -= amout;
+        Debug.Log("Ahhhhhhhhhhhhhhhhh");
     }
 
     public void OnTriggerEnter2D(Collider2D Collider2D)
     {
-        //GetComponent<PowerUpbase>().ApplyEffect(this);
-        object other;
-        PowerUpbase power = other.GetComponent
+        GetComponent<PowerUpbase>().ApplyEffect(this);
+
     }
 
     public void Move()

@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class Ahhhhhh : MonoBehaviour
+public class Ahhhhhh : PowerUpbase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void ApplyEffect(Player player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        player.TakeDamage(5);
+        IsEffectActive = true;
+        Destroy(gameObject);
     }
 }
